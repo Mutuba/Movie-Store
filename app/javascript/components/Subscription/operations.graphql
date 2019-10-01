@@ -1,0 +1,20 @@
+#/app/javascript/components/Subscription/operations.graphql
+#import '../../fragments/Movie.graphql'
+
+subscription MovieSubscription {
+  movieAdded {
+    ...MovieFragment
+    user {
+      id
+      email
+    }
+  }
+
+  movieUpdated {
+    ...MovieFragment
+    user {
+      id
+      email
+    }
+  }
+}

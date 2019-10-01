@@ -1,0 +1,28 @@
+#/app/javascript/components/AddMovieForm/operations.graphql
+#import '../../fragments/Movie.graphql'
+
+mutation AddMovieMutation(
+  $title: String!
+  $description: String
+  $imageUrl: String
+) {
+  addMovie(
+    attributes: {
+      # just changing the shape
+      title: $title
+      description: $description
+      imageUrl: $imageUrl
+    }
+  ) {
+    movie {
+      ...MovieFragment
+      user {
+        id
+        email
+      }
+    }
+    errors {
+      fullMessages
+    }
+  }
+}

@@ -1,0 +1,20 @@
+mutation UpdateMovieMutation(
+  $id: ID!
+  $title: String!
+  $description: String
+  $imageUrl: String
+) {
+  updateMovie(
+    id: $id
+    title: $title
+    description: $description
+    imageUrl: $imageUrl
+  ) {
+    movie {
+      id
+      title
+      description
+      imageUrl
+    }
+  }
+}
